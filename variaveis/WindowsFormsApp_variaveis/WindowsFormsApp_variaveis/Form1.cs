@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using NUnit.Framework;
 
 /// <summary>
-/// V* Simulando teste TDD  
+/// Simulando teste TDD  
 /// </summary>
 
 namespace WindowsFormsApp_variaveis
