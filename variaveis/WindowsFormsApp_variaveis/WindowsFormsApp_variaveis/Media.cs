@@ -41,6 +41,11 @@ namespace WindowsFormsApp_variaveis
             catch (Exception) {  }
 
             double media = (valor1 + valor2 + valor3) / 3;
+
+            //cast
+            int mediaInt = (int)media;
+            Console.WriteLine("Media INT : "+mediaInt);
+            //Assert.AreEqual(typeof(Int16).Equals(typeof(mediaInt)), mediaInt);
             //MessageBox.Show("A média dos valores é: " + media);
             resultado.BackColor = Color.Red;
             resultado.Text = ""+media;
@@ -53,6 +58,46 @@ namespace WindowsFormsApp_variaveis
 
             //Verifica a media é 100 - valor simbolico 
             Assert.AreEqual(100, media);
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Media_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void resultado_Click(object sender, EventArgs e)
+        {
 
         }
     }

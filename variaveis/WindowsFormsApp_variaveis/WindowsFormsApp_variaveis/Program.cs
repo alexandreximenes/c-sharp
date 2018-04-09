@@ -16,7 +16,7 @@ namespace WindowsFormsApp_variaveis
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Media());
+            Application.Run(new FormulaDeBhaskara());
         }
     }
 }
