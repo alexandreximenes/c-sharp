@@ -8,19 +8,38 @@ namespace ConsoleApp_OO
         {
             Console.WriteLine("Conta\n");
 
-            Conta alexandre = new Conta();
+            //Cria os objetos
+            Cliente alexandre = new Cliente();
+            Conta contaCorrente1 = new Conta();
+
+            //Seta os valores
             alexandre.numero = 1;
             alexandre.titular = "Alexandre";
-            alexandre.saldo = 10;
+            contaCorrente1.saldo = 1000;
+            contaCorrente1.cliente = alexandre;
 
-            Conta arhtur = new Conta();
-            arhtur.numero = 1;
-            arhtur.titular = "Arthur";
-            arhtur.saldo = 100;
+            //Cria os objetos
+            Cliente arthur = new Cliente();
+            Conta contaCorrente2 = new Conta();
 
+            //Seta os valores
+            arthur.numero = 1;
+            arthur.titular = "Arthur";
+            contaCorrente2.saldo = 1000;
+            contaCorrente2.cliente = arthur;
 
-            Console.WriteLine("Saldo do" + alexandre.titular + " é " + alexandre.saldo);
-            Console.WriteLine("Saldo do" + arhtur.titular + " é " + arhtur.saldo);
+            Console.WriteLine("\nAntes das operacoes");
+            Console.WriteLine("Saldo do" + contaCorrente1.cliente.titular + " é " + contaCorrente1.saldo);
+            Console.WriteLine("Saldo do" + contaCorrente2.cliente.titular + " é " + contaCorrente2.saldo);
+
+            Console.WriteLine("\nAntes das operacoes");
+            contaCorrente1.Saca(100);
+            contaCorrente2.Deposita(100);
+            contaCorrente1.Transfere(400, contaCorrente2);
+
+            Console.WriteLine("Antes das operacoes");
+            Console.WriteLine("Saldo do" + contaCorrente1.cliente.titular + " é " + contaCorrente1.saldo);
+            Console.WriteLine("Saldo do" + contaCorrente2.cliente.titular + " é " + contaCorrente2.saldo);
 
             Console.ReadKey();
         }
