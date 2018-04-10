@@ -12,10 +12,10 @@ namespace Heranca
         public double Saldo { get; protected set; }
         public Cliente Cliente { get; set; }
 
-        public virtual void Saca(double valor)
-        {
-            this.Saldo -= valor;
-        }
+        public abstract void Saca(double valor);
+        //{
+          //  this.Saldo -= valor;
+        //}
 
         public void Deposita(double valor)
         {
