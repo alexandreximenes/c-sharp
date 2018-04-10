@@ -27,6 +27,7 @@ namespace Heranca
             Console.WriteLine("saldo da conta poupança é  "+ cp.Saldo);
             Console.WriteLine("saldo da conta poupança é  " + cp2.Saldo);
             Console.WriteLine("Tributos totais das contas  " + Convert.ToString(t.Total() ));
+            Console.WriteLine("Total de contas é  " + Convert.ToString(Conta.totalDeContas() ));
             Console.ReadKey();
         }
     }

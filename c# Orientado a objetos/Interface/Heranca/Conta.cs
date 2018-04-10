@@ -7,11 +7,15 @@ namespace Heranca
     // Definindo a classe conta como generica para não ser instanciada.
     abstract class Conta
     {
+        public static int totalContas = 0;
         public int Numero { get; set; }
         //Nivel de acesso protected para ser acessado pelas contas que herdam dessa Conta
         public double Saldo { get; protected set; }
         public Cliente Cliente { get; set; }
 
+        public Conta() {
+            totalContas++;
+        }
         public abstract void Saca(double valor);
         //{
           //  this.Saldo -= valor;
@@ -26,6 +30,10 @@ namespace Heranca
         {
             this.Saca(valor);
             destino.Deposita(valor);
+        }
+
+        public static int totalDeContas() {
+            return totalContas;
         }
     }
 }
