@@ -11,22 +11,28 @@ namespace ListComObjetos
         static void Main(string[] args)
         {
             var aulaIntro = new Treinamento("Introducao a arrays", 20);
-            var aulaMetodos = new Treinamento("Metodos auxiliares de arrays", 20);
+            var aulaMetodos = new Treinamento("Metodos auxiliares de arrays", 50);
             var aulaList = new Treinamento("trabalhando com List", 40);
 
-
             List<Treinamento> treinamento = new List<Treinamento>();
-            treinamento.Add(aulaIntro);
             treinamento.Add(aulaMetodos);
+            treinamento.Add(aulaIntro);
             treinamento.Add(aulaList);
             
-            imprimir(treinamento);
-            //Ordenando com ICamparable
+            imprimir("treinamento com IComparable, ordenando por titulo : ", treinamento);
+            
+            //Ordenando titulo com ICamparable
             treinamento.Sort();
+
+            //Ordenando duracao com Lambda
+            treinamento.Sort( (este, outro) => este.Duracao.CompareTo(outro.Duracao) );
+            imprimir("treinamento com lambda, ordenando por duração : ", treinamento);
+
         }
 
-        private static void imprimir(List<Treinamento> treinamento)
+        private static void imprimir(string nome, List<Treinamento> treinamento)
         {
+            Console.WriteLine("\n"+nome);
             treinamento.ForEach(t => Console.WriteLine(t));
             Console.ReadKey();
         }
