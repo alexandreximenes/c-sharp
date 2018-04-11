@@ -27,6 +27,7 @@ namespace TrabalhandoComLIST
             //tamanho da lista
             Console.WriteLine( "Tamanho da lista : "+ treinamento.Count() );
 
+
             imprimir(treinamento);
         }
 
