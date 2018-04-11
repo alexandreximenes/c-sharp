@@ -10,15 +10,26 @@ namespace ListComObjetos
     {
         static void Main(string[] args)
         {
+            Curso cSharpCollections = new Curso("C# Collections", "Alexandre Ximenes");
+            cSharpCollections.Adiciona(new Treinamento("Introducao a arrays", 20));
+            imprimirIList("imprimindo com IList", cSharpCollections.Treinamento);
+            
+            //Criando instancias de do objeto treinamento
             var aulaIntro = new Treinamento("Introducao a arrays", 20);
             var aulaMetodos = new Treinamento("Metodos auxiliares de arrays", 50);
             var aulaList = new Treinamento("trabalhando com List", 40);
+
+            //Lista sem proteção
+           // cSharpCollections.Treinamento.Add(aulaIntro);
 
             List<Treinamento> treinamento = new List<Treinamento>();
             treinamento.Add(aulaMetodos);
             treinamento.Add(aulaIntro);
             treinamento.Add(aulaList);
+
+            //
             
+
             imprimir("treinamento com IComparable, ordenando por titulo : ", treinamento);
             
             //Ordenando titulo com ICamparable
@@ -28,6 +39,16 @@ namespace ListComObjetos
             treinamento.Sort( (este, outro) => este.Duracao.CompareTo(outro.Duracao) );
             imprimir("treinamento com lambda, ordenando por duração : ", treinamento);
 
+        }
+
+        private static void imprimirIList(string nome, IList<Treinamento> treinamento)
+        {
+            //IList não tem o metodo forEach
+            Console.WriteLine("\n" + nome);
+            foreach (var t in treinamento)
+            {
+                Console.WriteLine(t);
+            }
         }
 
         private static void imprimir(string nome, List<Treinamento> treinamento)
