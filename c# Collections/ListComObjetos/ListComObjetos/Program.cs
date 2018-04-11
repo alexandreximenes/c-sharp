@@ -19,14 +19,19 @@ namespace ListComObjetos
             treinamento.Add(aulaIntro);
             treinamento.Add(aulaMetodos);
             treinamento.Add(aulaList);
-
-            treinamento.ForEach(t => Console.WriteLine(t) );
-            Console.ReadKey();
+            
+            imprimir(treinamento);
+            //Ordenando com ICamparable
+            treinamento.Sort();
         }
 
-
+        private static void imprimir(List<Treinamento> treinamento)
+        {
+            treinamento.ForEach(t => Console.WriteLine(t));
+            Console.ReadKey();
+        }
     }
-    class Treinamento {
+    class Treinamento : IComparable{
         private string titulo;
         private int duracao;
 
@@ -39,6 +44,13 @@ namespace ListComObjetos
 
         public string Titulo { get => titulo; set => titulo = value; }
         public int Duracao { get => duracao; set => duracao = value; }
+
+        public int CompareTo(object obj)
+        {
+           Treinamento outro = (Treinamento) obj;
+           return this.titulo.CompareTo(outro.titulo);
+        }
+
         public override string ToString()
         {
             return $"[Titulo : {titulo}, tempo : {duracao}]";
