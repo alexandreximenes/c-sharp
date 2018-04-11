@@ -94,7 +94,7 @@ namespace TrabalhandoComLIST
 
             Console.ReadKey();
         }
-
+        
         private static void imprimirComLambda(string nomeLista, List<string> array)
         {
 
