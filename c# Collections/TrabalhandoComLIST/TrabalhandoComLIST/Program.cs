@@ -39,6 +39,11 @@ namespace TrabalhandoComLIST
             //Trabalhando com Lambdas
             treinamento.ForEach(t => Console.WriteLine(t));
 
+            //trabalhando com expressoes lambda
+            //procura a primeira ocorrencia dentro do array com a palavra 'trabalhando'
+            Console.WriteLine("A primeira ocorrencia da palabra 'trabalhando' é \t"
+                                +treinamento.First(t => t.Contains("trabalhando"))); 
+
             //imprimir(treinamento);
                 
             Console.ReadKey();
