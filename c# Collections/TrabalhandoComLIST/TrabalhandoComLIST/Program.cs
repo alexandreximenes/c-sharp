@@ -27,6 +27,15 @@ namespace TrabalhandoComLIST
             //tamanho da lista
             Console.WriteLine( "Tamanho da lista : "+ treinamento.Count() );
 
+            //imprimindo a primeira posicao do array
+            Console.WriteLine("primeira posicao da lista : " + treinamento.First());
+
+            //imprimindo a primeira posicao do array
+            Console.WriteLine("ultima posicao da lista : " + treinamento.Last());
+
+            //Verificando se existe um item no array
+            Console.WriteLine("Verificando se existe um item no array :  " +treinamento.Contains(intro));
+
             //Trabalhando com Lambdas
             treinamento.ForEach(t => Console.WriteLine(t));
 
