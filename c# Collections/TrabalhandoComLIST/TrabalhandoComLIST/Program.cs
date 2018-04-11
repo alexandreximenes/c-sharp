@@ -27,18 +27,34 @@ namespace TrabalhandoComLIST
             //tamanho da lista
             Console.WriteLine( "Tamanho da lista : "+ treinamento.Count() );
 
+            //Trabalhando com Lambdas
+            treinamento.ForEach(t => Console.WriteLine(t));
 
-            imprimir(treinamento);
+            //imprimir(treinamento);
+                
+            Console.ReadKey();
+        }
+
+
+        private static void imprimirForTradicional(List<string> treinamento)
+        {
+            // 1 modo antigo
+            for (var i = 0; i < treinamento.Count(); i++)
+            {
+                Console.WriteLine(treinamento[i]);
+            }
         }
 
         private static void imprimir(List<string> treinamento)
         {
+            //2 modo
             foreach (var t in treinamento)
             {
                 //var t - auxiliar para percorrer List treinamento
                 Console.WriteLine(t);
             }
-            Console.ReadKey();
+            
         }
+
     }
 }
