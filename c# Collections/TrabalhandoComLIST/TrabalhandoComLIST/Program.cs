@@ -13,12 +13,14 @@ namespace TrabalhandoComLIST
             //Usando Collections List
             string intro = "introducao a array simples";
             string listas = "trabalhando com List e seus metodos auxiliares";
+            string lambdas = "trabalhando com lambdas";
 
             //Criando uma lista - primeira forma
             List<string> treinamento = new List<string>
             {
                 intro,
                 listas,
+                lambdas,
             };
 
             // Adicionando elementos
@@ -36,16 +38,34 @@ namespace TrabalhandoComLIST
             //Verificando se existe um item no array
             Console.WriteLine("Verificando se existe um item no array :  " +treinamento.Contains(intro));
 
+
+            try
+            {
+                //trabalhando com expressoes lambda
+                //procura a primeira ocorrencia dentro do array com a palavra 'trabalhando'
+                Console.WriteLine("A PRIMEIRA ocorrencia da palavra 'trabalhando' é \t"
+                                    + treinamento.First(t => t.Contains("trabalhando")));
+
+                //procura a ultima ocorrencia dentro do array com a palavra 'trabalhando'
+                Console.WriteLine("A ULTIMA ocorrencia da palavra 'trabalhando' é \t"
+                                    + treinamento.Last(t => t.Contains("trabalhando")));
+            }
+            catch (Exception) { /*tratamento da exceção */}
+
+            //procura a primeira ocorrencia ou DEFAULT dentro do array com a palavra 'trabalhando'
+            Console.WriteLine("A PRIMEIRA OU DEFAULT (VAZIO) ocorrencia da palavra 'trabalhando' é \t"
+                                + treinamento.FirstOrDefault(t => t.Contains("textoNaoEncontrado")));
+
+            //Invertendo a lista
+            treinamento.Reverse();
+
+            //Removendo itens da lista
+
             //Trabalhando com Lambdas
             treinamento.ForEach(t => Console.WriteLine(t));
 
-            //trabalhando com expressoes lambda
-            //procura a primeira ocorrencia dentro do array com a palavra 'trabalhando'
-            Console.WriteLine("A primeira ocorrencia da palabra 'trabalhando' é \t"
-                                +treinamento.First(t => t.Contains("trabalhando"))); 
-
             //imprimir(treinamento);
-                
+
             Console.ReadKey();
         }
 
