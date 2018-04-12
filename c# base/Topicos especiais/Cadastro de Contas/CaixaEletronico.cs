@@ -42,6 +42,13 @@ namespace MinhasContas
         {
             contas.Add(conta);
             contas.ForEach(c => comboboxCliente.Items.Add(c.Cliente.Nome));
+
+            //Trabalhando com HashSet
+         /*   var contas2 = new HashSet<Conta>(contas);
+            foreach (Conta c in contas2) {
+                MessageBox.Show(""+c);
+            }
+         */ 
         }
 
         private void btCadastrarCliente_Click(object sender, EventArgs e)
