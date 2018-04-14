@@ -48,7 +48,14 @@ namespace ListComObjetos
             set { instrutor = value; }
         }
 
-
-
+        public int TempoTotal()
+        {
+            int total = 0;
+            foreach (var aula in AulasTreinamento)
+            {
+                total += aula.Duracao;
+            }
+            return total;
+        }
     }
 }

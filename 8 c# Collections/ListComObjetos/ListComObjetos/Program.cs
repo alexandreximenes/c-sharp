@@ -19,8 +19,13 @@ namespace ListComObjetos
             var aulaMetodos = new Aula("Metodos auxiliares de arrays", 50);
             var aulaList = new Aula("trabalhando com List", 40);
 
+            //Adicionando aulas no cSharpCollections
+            cSharpCollections.Adiciona(aulaIntro);
+            cSharpCollections.Adiciona(aulaMetodos);
+            cSharpCollections.Adiciona(aulaList);
+
             //Lista sem proteção
-           // cSharpCollections.Treinamento.Add(aulaIntro);
+            // cSharpCollections.Treinamento.Add(aulaIntro);
 
             List<Aula> Aulas = new List<Aula>();
             Aulas.Add(aulaMetodos);
@@ -35,6 +40,18 @@ namespace ListComObjetos
             Aulas.Sort( (este, outro) => este.Duracao.CompareTo(outro.Duracao) );
             imprimir("treinamento com lambda, ordenando por duração : ", Aulas);
 
+            //Copia da lista Aulas
+            List<Aula> AulasCopiadas = new List<Aula>(Aulas);
+
+            //Ordenando a AulasCopiadas por duração do tempo maior para o menor
+            AulasCopiadas.Sort( (este, outro) => este.Duracao.CompareTo(outro.Duracao) );
+            AulasCopiadas.Reverse();
+            imprimir("treinamento com IComparable, ordenando a copia por titulo : ", AulasCopiadas);
+
+            //Totalizar o tempo de duração do curso
+            int TempoTotal = cSharpCollections.TempoTotal();
+            Console.WriteLine("tempo total do curso : {0}", TempoTotal );
+            Console.ReadKey();
         }
 
         private static void imprimirIList(string nome, IList<Aula> treinamento)
