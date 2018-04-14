@@ -11,37 +11,33 @@ namespace ListComObjetos
         static void Main(string[] args)
         {
             Curso cSharpCollections = new Curso("C# Collections", "Alexandre Ximenes");
-            cSharpCollections.Adiciona(new Treinamento("Introducao a arrays", 20));
-            imprimirIList("imprimindo com IList", cSharpCollections.Treinamento);
+            cSharpCollections.Adiciona(new Aula("Introducao a arrays", 20));
+            imprimirIList("imprimindo com IList", cSharpCollections.Aulas);
             
             //Criando instancias de do objeto treinamento
-            var aulaIntro = new Treinamento("Introducao a arrays", 20);
-            var aulaMetodos = new Treinamento("Metodos auxiliares de arrays", 50);
-            var aulaList = new Treinamento("trabalhando com List", 40);
+            var aulaIntro = new Aula("Introducao a arrays", 20);
+            var aulaMetodos = new Aula("Metodos auxiliares de arrays", 50);
+            var aulaList = new Aula("trabalhando com List", 40);
 
             //Lista sem proteção
            // cSharpCollections.Treinamento.Add(aulaIntro);
 
-            List<Treinamento> treinamento = new List<Treinamento>();
-            treinamento.Add(aulaMetodos);
-            treinamento.Add(aulaIntro);
-            treinamento.Add(aulaList);
+            List<Aula> Aulas = new List<Aula>();
+            Aulas.Add(aulaMetodos);
+            Aulas.Add(aulaIntro);
+            Aulas.Add(aulaList);
 
-            //
-            
-
-            imprimir("treinamento com IComparable, ordenando por titulo : ", treinamento);
-            
             //Ordenando titulo com ICamparable
-            treinamento.Sort();
-
+            Aulas.Sort();
+            imprimir("treinamento com IComparable, ordenando por titulo : ", Aulas);
+            
             //Ordenando duracao com Lambda
-            treinamento.Sort( (este, outro) => este.Duracao.CompareTo(outro.Duracao) );
-            imprimir("treinamento com lambda, ordenando por duração : ", treinamento);
+            Aulas.Sort( (este, outro) => este.Duracao.CompareTo(outro.Duracao) );
+            imprimir("treinamento com lambda, ordenando por duração : ", Aulas);
 
         }
 
-        private static void imprimirIList(string nome, IList<Treinamento> treinamento)
+        private static void imprimirIList(string nome, IList<Aula> treinamento)
         {
             //IList não tem o metodo forEach
             Console.WriteLine("\n" + nome);
@@ -51,36 +47,12 @@ namespace ListComObjetos
             }
         }
 
-        private static void imprimir(string nome, List<Treinamento> treinamento)
+        private static void imprimir(string nome, List<Aula> treinamento)
         {
             Console.WriteLine("\n"+nome);
             treinamento.ForEach(t => Console.WriteLine(t));
             Console.ReadKey();
         }
     }
-    class Treinamento : IComparable{
-        private string titulo;
-        private int duracao;
-
-        public Treinamento(string titulo, int duracao)
-        {
-            Titulo = titulo;
-            Duracao = duracao;
-
-        }
-
-        public string Titulo { get => titulo; set => titulo = value; }
-        public int Duracao { get => duracao; set => duracao = value; }
-
-        public int CompareTo(object obj)
-        {
-           Treinamento outro = (Treinamento) obj;
-           return this.titulo.CompareTo(outro.titulo);
-        }
-
-        public override string ToString()
-        {
-            return $"[Titulo : {titulo}, tempo : {duracao}]";
-        }
-    }
+    
 }

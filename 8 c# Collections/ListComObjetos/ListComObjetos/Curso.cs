@@ -9,7 +9,7 @@ namespace ListComObjetos
 {
     class Curso
     {
-        private List<Treinamento> treinamento;
+        private List<Aula> AulasTreinamento;
         private string nome;
         private string instrutor;
 
@@ -17,21 +17,21 @@ namespace ListComObjetos
         {
             this.nome = nome;
             this.instrutor = instrutor;
-            this.treinamento = new List<Treinamento>();
+            this.AulasTreinamento = new List<Aula>();
         }
 
         //encapsulando a regra de adicionar
-        internal void Adiciona(Treinamento t)
+        internal void Adiciona(Aula t)
         {
-            this.treinamento.Add(t);
+            this.AulasTreinamento.Add(t);
         }
 
         // criando uma lista de somente leitura
         // trocar List com IList pois ReadOnlyCollection implementa IList
 
-        public IList<Treinamento> Treinamento
+        public IList<Aula> Aulas
         {
-            get { return new ReadOnlyCollection<Treinamento>(treinamento); }
+            get { return new ReadOnlyCollection<Aula>(AulasTreinamento); }
             //set { treinamento = value; }
         }
 
