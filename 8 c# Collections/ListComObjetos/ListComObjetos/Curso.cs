@@ -48,14 +48,24 @@ namespace ListComObjetos
             set { instrutor = value; }
         }
 
-        public int TempoTotal()
+        public int TempoTotal
         {
-            int total = 0;
-            foreach (var aula in AulasTreinamento)
-            {
-                total += aula.Duracao;
+            get{
+                //Usando LINQ - Language Integrated Query
+                return AulasTreinamento.Sum(aulas => aulas.Duracao);
+
+                /*int total = 0;
+                foreach (var aula in AulasTreinamento)
+                {
+                    total += aula.Duracao;
+                }
+                return total;*/
             }
-            return total;
+        }
+
+        public override string ToString()
+        {
+            return $"[Curso: {nome}, tempo: {TempoTotal}, \nAulas: {string.Join(",", AulasTreinamento)}\n]";
         }
     }
 }

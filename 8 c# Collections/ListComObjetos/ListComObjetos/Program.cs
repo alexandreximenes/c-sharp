@@ -49,8 +49,11 @@ namespace ListComObjetos
             imprimir("treinamento com IComparable, ordenando a copia por titulo : ", AulasCopiadas);
 
             //Totalizar o tempo de duração do curso
-            int TempoTotal = cSharpCollections.TempoTotal();
+            int TempoTotal = cSharpCollections.TempoTotal;
             Console.WriteLine("tempo total do curso : {0}", TempoTotal );
+
+            //Imprimir o Curso
+            Console.WriteLine("Imprimindo curso com ToString: "+cSharpCollections);
             Console.ReadKey();
         }
 
