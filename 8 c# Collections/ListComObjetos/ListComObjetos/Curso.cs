@@ -10,6 +10,8 @@ namespace ListComObjetos
     class Curso
     {
         private List<Aula> AulasTreinamento;
+        private IDictionary<int, Aluno> dicionarioAlunos = new Dictionary<int, Aluno>();
+        private ISet<Aluno> alunos = new HashSet<Aluno>();
         private string nome;
         private string instrutor;
 
@@ -18,6 +20,15 @@ namespace ListComObjetos
             this.nome = nome;
             this.instrutor = instrutor;
             this.AulasTreinamento = new List<Aula>();
+        }
+
+        public IList<Aluno> Alunos
+        {
+            get
+            {
+                return new ReadOnlyCollection<Aluno>(alunos.ToList());
+            }
+
         }
 
         //encapsulando a regra de adicionar
@@ -61,6 +72,16 @@ namespace ListComObjetos
                 }
                 return total;*/
             }
+        }
+
+        public void Matricular(Aluno aluno)
+        {
+            this.alunos.Add(aluno);
+        }
+
+        public bool matriculado(Aluno aluno)
+        {
+            return alunos.Contains(aluno);
         }
 
         public override string ToString()

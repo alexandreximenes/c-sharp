@@ -54,8 +54,38 @@ namespace ListComObjetos
 
             //Imprimir o Curso
             Console.WriteLine("Imprimindo curso com ToString: "+cSharpCollections);
+            
+
+            Aluno a1 = new Aluno("Alexandre Ximenes", 123);
+            Aluno a2 = new Aluno("Dayane Ximenes", 231);
+            Aluno a3 = new Aluno("Arthur Ximenes", 321);
+            Aluno a4 = new Aluno("Alexandre Ximenes", 123);
+
+            //Adiciona os alunos no ISet alunos
+            cSharpCollections.Matricular(a1);
+            cSharpCollections.Matricular(a2);
+            cSharpCollections.Matricular(a3);
+
+            //Imprimir os alunos
+            Console.WriteLine("\nImprimindo alunos");
+            foreach (Aluno aluno in cSharpCollections.Alunos)
+            {
+                Console.WriteLine(aluno);
+            }
+
+            Console.WriteLine($"O aluno {a1.Nome} esta matriculado :");
+            Console.WriteLine(a1.Equals(a4));
+
             Console.ReadKey();
+
+            //Limpando o console
+            Console.Clear();
+
+           
+
         }
+
+        
 
         private static void imprimirIList(string nome, IList<Aula> treinamento)
         {
