@@ -22,7 +22,25 @@ namespace MinhasContas
             {
                 Console.WriteLine("Não foi possivel capturar os campos do cliente");
             }
+        
+        }
 
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+
+            Cliente outro = obj as Cliente;
+
+            if (outro.Nome.Equals(outro.Nome))
+            {
+                return true;        
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return this.Nome.GetHashCode();
         }
 
 
