@@ -77,11 +77,15 @@ namespace ListComObjetos
         public void Matricular(Aluno aluno)
         {
             this.alunos.Add(aluno);
+            this.dicionarioAlunos.Add(aluno.Matricula, aluno);
         }
 
-        public bool matriculado(Aluno aluno)
+        public Aluno matriculado(Aluno aluno)
         {
-            return alunos.Contains(aluno);
+            //return alunos.Contains(aluno);
+            Aluno aluno1 = null;
+            this.dicionarioAlunos.TryGetValue(aluno.Matricula, out aluno1);
+            return aluno1;
         }
 
         public override string ToString()

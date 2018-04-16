@@ -31,7 +31,7 @@
             {
                 return false;
             }
-            return this.Nome.Equals(outro.Nome);
+            return this.Matricula.Equals(outro.Matricula);
         }
 
         public override int GetHashCode()

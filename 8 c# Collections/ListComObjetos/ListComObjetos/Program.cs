@@ -73,16 +73,16 @@ namespace ListComObjetos
                 Console.WriteLine(aluno);
             }
 
-            Console.WriteLine($"O aluno {a1.Nome} esta matriculado :");
-            Console.WriteLine(a1.Equals(a4));
-
-            Console.ReadKey();
-
             //Limpando o console
             Console.Clear();
 
-           
+            Console.WriteLine($"O aluno {a1.Nome} esta matriculado :");
+            Console.WriteLine(cSharpCollections.matriculado(a4));
 
+            Console.ReadKey();
+
+            
+            
         }
 
         
